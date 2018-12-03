@@ -1,0 +1,16 @@
+#!/bin/sh
+
+set -e
+
+while read line
+do
+  NAME=`basename ${line}`
+  cd $NAME
+  echo "Testing $NAME"
+  if [ -e "script/test-local" ]; then
+    ./script/test-local
+  elif [ -e "script/test" ]; then
+    ./script/test
+  fi
+  cd ..
+done < projects
