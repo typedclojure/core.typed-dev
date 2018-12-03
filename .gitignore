@@ -1,1 +1,7 @@
-core.typed*
+# Ignore everything
+*
+
+# But not these files...
+!.gitignore
+!scripts
+!projects
