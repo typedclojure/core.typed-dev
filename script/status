@@ -7,6 +7,6 @@ do
   NAME=`basename ${line}`
   cd $NAME
   echo $NAME
-  git status -s
+  git status "$@"
   cd ..
 done < projects

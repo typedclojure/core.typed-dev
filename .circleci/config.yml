@@ -1,10 +1,7 @@
 version: 2
 
-jobs:
-  build:
+shared: &shared
     working_directory: ~/core.typed-dev
-    docker:
-      - image: circleci/openjdk:8-jdk
     steps:
       - checkout
       - run:
@@ -14,3 +11,21 @@ jobs:
             sudo ./linux-install-1.9.0.397.sh
       - run: ./script/clone-all.sh
       - run: ./script/test-local
+
+jobs:
+  "openjdk-8":  
+    <<: *shared
+    docker:
+      - image: circleci/openjdk:8-jdk
+
+  "openjdk-9":
+    <<: *shared
+    docker:
+      - image: circleci/openjdk:9-jdk
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - "openjdk-8"
+      - "openjdk-9"

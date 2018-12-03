@@ -5,12 +5,16 @@ set -e
 while read line
 do
   NAME=`basename ${line}`
-  cd $NAME
-  echo "Testing $NAME"
-  if [ -e "script/test-local" ]; then
-    ./script/test-local
-  elif [ -e "script/test" ]; then
-    ./script/test
-  fi
-  cd ..
+  while read line
+  do
+    cd $NAME
+    CLJ=$line
+    echo "PROJECT: $NAME (Clojure $CLJ)"
+    if [ -e "script/test-local" ]; then
+      ./script/test-local -Sdeps "{:deps {org.clojure/clojure {:mvn/version \"$CLJ\"}}}"
+    elif [ -e "script/test" ]; then
+      ./script/test -Sdeps "{:deps {org.clojure/clojure {:mvn/version \"$CLJ\"}}}"
+    fi
+    cd ..
+  done < clojure-versions
 done < projects
