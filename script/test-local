@@ -11,9 +11,9 @@ do
     CLJ=$line
     echo "PROJECT: $NAME (Clojure $CLJ)"
     if [ -e "script/test-local" ]; then
-      ./script/test-local -Sdeps "{:deps {org.clojure/clojure {:mvn/version \"$CLJ\"}}}"
+      ./script/test-local -J-Xmx2g -Sdeps "{:deps {org.clojure/clojure {:mvn/version \"$CLJ\"}}}"
     elif [ -e "script/test" ]; then
-      ./script/test -Sdeps "{:deps {org.clojure/clojure {:mvn/version \"$CLJ\"}}}"
+      ./script/test -J-Xmx2g -Sdeps "{:deps {org.clojure/clojure {:mvn/version \"$CLJ\"}}}"
     fi
     cd ..
   done < clojure-versions
