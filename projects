@@ -1,7 +1,7 @@
 clojure/core.typed.analyzer.jvm
 clojure/core.typed.annotator.jvm
 clojure/core.typed.checker.jvm
-typedclojure/core.typed.lang.jvm
 clojure/core.typed.runtime.jvm
-typedclojure/core.typed.lib.clojure
 typedclojure/core.typed-template
+typedclojure/core.typed.lang.jvm
+typedclojure/core.typed.lib.clojure
