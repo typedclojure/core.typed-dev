@@ -4,6 +4,7 @@ shared: &shared
     working_directory: ~/core.typed-dev
     steps:
       - checkout
+      - run: java -version
       - run:
           command: |
             curl -O https://download.clojure.org/install/linux-install-1.9.0.397.sh
@@ -33,6 +34,11 @@ jobs:
     docker:
       - image: circleci/openjdk:11-jdk
 
+  "openjdk-12":
+    <<: *shared
+    docker:
+      - image: circleci/openjdk:12-jdk
+
 workflows:
   version: 2
   build:
@@ -41,3 +47,4 @@ workflows:
       - "openjdk-9"
       - "openjdk-10"
       - "openjdk-11"
+      - "openjdk-12"
