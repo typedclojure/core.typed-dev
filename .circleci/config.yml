@@ -42,3 +42,17 @@ workflows:
       - "openjdk-9"
       - "openjdk-10"
       - "openjdk-11"
+
+  nightly:
+    triggers:
+      - schedule:
+          cron: "0 6 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - "openjdk-8"
+      - "openjdk-9"
+      - "openjdk-10"
+      - "openjdk-11"
