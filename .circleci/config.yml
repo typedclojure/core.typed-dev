@@ -37,7 +37,7 @@ jobs:
   "openjdk-12":
     <<: *shared
     docker:
-      - image: circleci/openjdk:12-ea-20-jdk
+      - image: circleci/openjdk:12-ea-20-jdk-oraclelinux7
 
 workflows:
   version: 2
