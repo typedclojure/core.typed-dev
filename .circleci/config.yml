@@ -42,4 +42,3 @@ workflows:
       - "openjdk-9"
       - "openjdk-10"
       - "openjdk-11"
-      - "openjdk-12"
