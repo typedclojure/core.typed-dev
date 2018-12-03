@@ -1,0 +1,15 @@
+[submodule "core.typed.analyzer.jvm"]
+	path = core.typed.analyzer.jvm
+	url = git@github.com:typedclojure/core.typed.analyzer.jvm.git
+[submodule "core.typed.annotator.jvm"]
+	path = core.typed.annotator.jvm
+	url = git@github.com:typedclojure/core.typed.annotator.jvm.git
+[submodule "core.typed.checker.jvm"]
+	path = core.typed.checker.jvm
+	url = git@github.com:typedclojure/core.typed.checker.jvm.git
+[submodule "core.typed.lang.jvm"]
+	path = core.typed.lang.jvm
+	url = git@github.com:typedclojure/core.typed.lang.jvm.git
+[submodule "core.typed.runtime.jvm"]
+	path = core.typed.runtime.jvm
+	url = git@github.com:typedclojure/core.typed.runtime.jvm.git
