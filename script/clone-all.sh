@@ -2,7 +2,7 @@
 
 set -e
 
-function clone() {
+clone () {
   GROUPID=`dirname $1` 
   ARTIFACTID=`basename $1`
   git clone git@github.com:typedclojure/$ARTIFACTID.git --origin typedclojure
@@ -12,7 +12,6 @@ function clone() {
     git remote add clojure git@github.com:clojure/$ARTIFACTID.git
   fi
   cd ..
-
 }
 
 export -f clone
