@@ -13,3 +13,5 @@ Run `./script/checkout-branch.sh BRANCH` to checkout a worktree of each
 core.typed repo to the git branch `BRANCH` in the `branches/BRANCH` directory.
 
 `./script/status -s` gives a quick overview of all clones.
+
+`./script/grep foobar` greps "foobar" in each subproject.

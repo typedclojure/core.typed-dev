@@ -1,0 +1,37 @@
+#!/bin/sh
+
+# Prints the subprojects in `projects` that use the specified project.
+
+set -e
+
+PROJECTNAME=$1
+PROJECT=""
+
+while read line
+do
+  THISNAME=`basename $line`
+  if [ $PROJECTNAME == $THISNAME ]  || [ $PROJECTNAME == $line ]; then
+    PROJECT=$line
+  fi
+done < projects
+
+if [ -z $PROJECT ]; then
+  echo "Must specify project"
+  exit 1
+fi
+
+echo "Finding who uses $PROJECT"
+
+function check_downstream() {
+  NAME=`basename $1`
+  cd $NAME
+  # allow grep to return an error
+  ISUPSTREAM=`./script/repl -Stree | grep "$line "` || true
+  if [[ $ISUPSTREAM ]]; then
+    echo $NAME #depends on "$ISUPSTREAM"
+  fi
+  cd ..
+}
+
+export -f check_downstream
+cat projects | parallel check_downstream {}
