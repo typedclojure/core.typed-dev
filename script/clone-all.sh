@@ -4,13 +4,13 @@ set -e
 
 while read line
 do
-  ORG=`dirname $line` 
-  REPO=`basename $line`
-  git clone git@github.com:typedclojure/$REPO.git --origin typedclojure
-  cd $REPO
+  GROUPID=`dirname $line` 
+  ARTIFACTID=`basename $line`
+  git clone git@github.com:typedclojure/$ARTIFACTID.git --origin typedclojure
+  cd $ARTIFACTID
   git branch --set-upstream-to typedclojure/master
-  if [ "$ORG" == "clojure" ]; then
-    git remote add clojure git@github.com:clojure/$REPO.git
+  if [ "$GROUPID" == "org.clojure" ]; then
+    git remote add clojure git@github.com:clojure/$ARTIFACTID.git
   fi
   cd ..
 done < projects

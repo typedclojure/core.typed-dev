@@ -1,0 +1,7 @@
+{:aliases {:local-deps {:override-deps {
+org.clojure/core.typed.analyzer.jvm {:local/root "../core.typed.analyzer.jvm" :deps/manifest :deps}
+org.clojure/core.typed.annotator.jvm {:local/root "../core.typed.annotator.jvm" :deps/manifest :deps}
+org.clojure/core.typed.checker.jvm {:local/root "../core.typed.checker.jvm" :deps/manifest :deps}
+org.clojure/core.typed.runtime.jvm {:local/root "../core.typed.runtime.jvm" :deps/manifest :deps}
+org.typedclojure/core.typed.lang.jvm {:local/root "../core.typed.lang.jvm" :deps/manifest :deps}
+org.typedclojure/core.typed.lib.clojure {:local/root "../core.typed.lib.clojure" :deps/manifest :deps}}}}}

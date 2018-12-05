@@ -1,0 +1,17 @@
+#!/bin/sh
+
+set -e
+
+PROJECT=$1
+# all but first
+ARGS="${@:2}"
+
+if [ -z $1 ]; then
+  echo "Must specify project"
+  exit 1
+fi
+
+echo "Using overrides {$OVERRIDES}"
+
+cd $PROJECT
+CLJ_CONFIG="../common" bash -c "./script/repl -A:local-deps $ARGS"
