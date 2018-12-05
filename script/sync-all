@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -e
+
+while read line
+do
+  NAME=`basename ${line}`
+  cd $NAME
+  echo $NAME
+  ./script/sync-master.sh
+  cd ..
+done < projects
