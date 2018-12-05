@@ -6,8 +6,10 @@ Development tools for local dev and running CI jobs on core.typed.
 
 ## Instructions
 
-Run `./scripts/clone-all.sh` to clone all core.typed repos into
+Run `./script/clone-all.sh` to clone all core.typed repos into
 the current directory.
 
-Run `./scripts/checkout-branch.sh BRANCH` to checkout a worktree of each
+Run `./script/checkout-branch.sh BRANCH` to checkout a worktree of each
 core.typed repo to the git branch `BRANCH` in the `branches/BRANCH` directory.
+
+`./script/status -s` gives a quick overview of all clones.
