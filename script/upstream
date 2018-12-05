@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Returns the subprojects in `projects` that the specified project depends on.
 
