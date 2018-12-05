@@ -2,11 +2,13 @@
 
 set -e
 
-while read line
-do
-  NAME=`basename ${line}`
+function sync_master() {
+  NAME=`basename $1`
   cd $NAME
   echo $NAME
   ./script/sync-master.sh
   cd ..
-done < projects
+}
+
+export -f sync_master
+cat projects | parallel sync_master {}
