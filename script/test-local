@@ -7,10 +7,7 @@ do
   NAME=`basename ${line}`
   while read line
   do
-    cd $NAME
     CLJ=$line
-    echo "PROJECT: $NAME (Clojure $CLJ)"
-    CLJ_CONFIG="../common" bash -c "./script/test -A:local-deps -J-Xmx2g -Sdeps '{:deps {org.clojure/clojure {:mvn/version \"$CLJ\"}}}'" # -Stree
-    cd ..
+    ./script/test-local-clj $NAME $CLJ
   done < clojure-versions
 done < projects
