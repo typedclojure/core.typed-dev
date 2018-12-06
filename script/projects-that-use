@@ -20,7 +20,7 @@ if [ -z $PROJECT ]; then
   exit 1
 fi
 
-echo "Finding who uses $PROJECT"
+#echo "Finding who uses $PROJECT"
 
 check_downstream() {
   NAME=`basename $1`
