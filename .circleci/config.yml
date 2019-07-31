@@ -24,11 +24,6 @@ jobs:
     docker:
       - image: circleci/openjdk:9-jdk
 
-  "openjdk-10":
-    <<: *shared
-    docker:
-      - image: circleci/openjdk:10-jdk
-
   "openjdk-11":
     <<: *shared
     docker:
