@@ -10,7 +10,8 @@ clone () {
   cd $ARTIFACTID
   # SSH for daily dev
   git remote rm typedclojure
-  git remote add typedclojure git@github.com:clojure/$ARTIFACTID.git
+  git remote add typedclojure git@github.com:typedclojure/$ARTIFACTID.git
+  git pull typedclojure master
   git branch --set-upstream-to typedclojure/master
   if [ "$GROUPID" == "org.clojure" ]; then
     git remote add clojure git@github.com:clojure/$ARTIFACTID.git
