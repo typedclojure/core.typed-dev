@@ -2,15 +2,19 @@ name: Run tests with clj
 
 on: [push]
 
+strategy:
+  matrix:
+    jdk: ['1.8', '1.11']
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Set up JDK 1.11
+      - name: Set up JDK ${{ matrix.jdk }}
         uses: actions/setup-java@v1
         with:
-          java-version: 1.11
+          java-version: ${{ matrix.jdk }}
       - uses: DeLaGuardo/setup-clojure@2.0
         with:
           tools-deps: latest
