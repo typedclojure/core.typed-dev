@@ -14,5 +14,13 @@ clone () {
   cd ..
 }
 
-export -f clone
-cat projects | parallel clone {}
+# https://stackoverflow.com/a/26759734
+if [ -x "$(command -v parallel)" ]; then
+  export -f clone
+  cat projects | parallel clone {}
+else
+  # https://stackoverflow.com/a/1521498
+  while read p; do
+    clone "$p"
+  done <projects
+fi
