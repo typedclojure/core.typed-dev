@@ -5,8 +5,12 @@ set -e
 clone () {
   GROUPID=`dirname $1` 
   ARTIFACTID=`basename $1`
-  git clone git@github.com:typedclojure/$ARTIFACTID.git --origin typedclojure
+  # HTTPS to clone
+  git clone https://github.com/typedclojure/$ARTIFACTID.git --origin typedclojure
   cd $ARTIFACTID
+  # SSH for daily dev
+  git remote rm typedclojure
+  git remote add typedclojure git@github.com:clojure/$ARTIFACTID.git
   git branch --set-upstream-to typedclojure/master
   if [ "$GROUPID" == "org.clojure" ]; then
     git remote add clojure git@github.com:clojure/$ARTIFACTID.git
